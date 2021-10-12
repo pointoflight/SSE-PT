@@ -1,5 +1,6 @@
 dataset,ml1m
 gpu,0
 k,10
-num_epochs,2000
+num_epochs,20
+print_freq,2
 train_dir,default

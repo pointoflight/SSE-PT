@@ -49,7 +49,7 @@ parser.add_argument('--num_epochs', default=2000, type=int)
 # parser.add_argument('--threshold_item', default=1.0, type=float)
 # parser.add_argument('--l2_emb', default=0.0, type=float)
 parser.add_argument('--gpu', default=0, type=int)
-# parser.add_argument('--print_freq', default=10, type=int)
+parser.add_argument('--print_freq', default=50, type=int)
 parser.add_argument('--k', default=10, type=int)
 
 args = parser.parse_args()
@@ -99,17 +99,35 @@ def run(run_dir, args, hparams):
 
         model = Model(usernum, itemnum, hparams)
         sess.run(tf.global_variables_initializer())
-                
+        
+        T = 0.0
+        t_test = evaluate(model, dataset, args, hparams, sess)
+        t_valid = evaluate_valid(model, dataset, args, hparams, sess)
+        print("[0, 0.0, {0:.5f}, {1:.5f}, {2:.5f}, {3:.5f}],".format(t_valid[0], t_valid[1], t_test[0], t_test[1]))
+        
+        t0 = time.time()
+
         for epoch in range(1, args.num_epochs + 1):
             for step in range(num_batch):
                 u, seq, pos, neg = sampler.next_batch()
                 user_emb_table, item_emb_table, attention, auc, loss, _ = sess.run([model.user_emb_table, model.item_emb_table, model.attention, model.auc, model.loss, model.train_op],
                                             {model.u: u, model.input_seq: seq, model.pos: pos, model.neg: neg,
                                              model.is_training: True})
+        
+            if epoch % args.print_freq == 0:
+                t1 = time.time() - t0
+                T += t1
+                #print 'Evaluating',
+                t_test = evaluate(model, dataset, args, hparams, sess)
+                t_valid = evaluate_valid(model, dataset, args, hparams, sess)
+                #print ''
+                #print 'epoch:%d, time: %f(s), valid (NDCG@10: %.4f, HR@10: %.4f), test (NDCG@10: %.4f, HR@10: %.4f)' % (
+                #epoch, T, t_valid[0], t_valid[1], t_test[0], t_test[1])
+                print("[{0}, {1:.2f}, {2:.5f}, {3:.5f}, {4:.5f}, {5:.5f}],".format(epoch, T, t_valid[0], t_valid[1], t_test[0], t_test[1]))
 
-        t_test = evaluate(model, dataset, args, hparams, sess)
-        t_valid = evaluate_valid(model, dataset, args, hparams, sess)
-        print("[{0:.5f}, {1:.5f}, {2:.5f}, {3:.5f}]".format(t_valid[0], t_valid[1], t_test[0], t_test[1]))
+        # t_test = evaluate(model, dataset, args, hparams, sess)
+        # t_valid = evaluate_valid(model, dataset, args, hparams, sess)
+        # print("[{0:.5f}, {1:.5f}, {2:.5f}, {3:.5f}]".format(t_valid[0], t_valid[1], t_test[0], t_test[1]))
         accuracy = t_valid[0]
         tf.summary.scalar(METRIC_NDCG, accuracy)
 
