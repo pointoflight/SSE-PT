@@ -4,6 +4,20 @@ import random
 import numpy as np
 from collections import defaultdict
 
+from tensorboard.plugins.hparams import api as hp
+
+HP_LR = hp.HParam('learning rate', hp.Discrete([0.0001, 0.0005, 0.001, 0.005, 0.01]))
+HP_MAXLEN = hp.HParam('max len', hp.Discrete([50, 100, 150, 200]))
+HP_BS = hp.HParam('batch size', hp.Discrete([32,64,128,256]))
+HP_USERHIDDEN = hp.HParam('user hidden units', hp.Discrete([30,50,60,100]))
+HP_ITEMHIDDEN = hp.HParam('item hidden units', hp.Discrete([30,50,60,100]))
+HP_NUMBLOCKS = hp.HParam('num blocks', hp.Discrete([1,2,3,4]))
+HP_NUMHEADS = hp.HParam('num heads', hp.Discrete([1,2,3]))
+HP_DROPOUT = hp.HParam('dropout rate', hp.Discrete([0.2,0.3,0.5]))
+HP_SSEU = hp.HParam('sse prob user', hp.Discrete([0.1,0.5,0.7,1.0]))
+HP_SSEI = hp.HParam('sse prob item', hp.Discrete([0.1,0.5,0.7,1.0]))
+HP_L2 = hp.HParam('l2 emb', hp.Discrete([0.0, 0.1, 0.3, 0.5]))
+
 
 def data_partition(fname):
     usernum = 0
@@ -37,7 +51,7 @@ def data_partition(fname):
     return [user_train, user_valid, user_test, usernum, itemnum]
 
 
-def evaluate(model, dataset, args, sess):
+def evaluate(model, dataset, args, hparams, sess):
     [train, valid, test, usernum, itemnum] = copy.deepcopy(dataset)
 
     NDCG = 0.0
@@ -52,8 +66,8 @@ def evaluate(model, dataset, args, sess):
 
         if len(train[u]) < 1 or len(test[u]) < 1: continue
 
-        seq = np.zeros([args.maxlen], dtype=np.int32)
-        idx = args.maxlen - 1
+        seq = np.zeros([hparams[HP_MAXLEN]], dtype=np.int32)
+        idx = hparams[HP_MAXLEN] - 1
         seq[idx] = valid[u][0]
         idx -= 1
         for i in reversed(train[u]):
@@ -85,7 +99,7 @@ def evaluate(model, dataset, args, sess):
     return NDCG / valid_user, HT / valid_user
 
 
-def evaluate_valid(model, dataset, args, sess):
+def evaluate_valid(model, dataset, args, hparams, sess):
     [train, valid, test, usernum, itemnum] = copy.deepcopy(dataset)
 
     NDCG = 0.0
@@ -98,8 +112,8 @@ def evaluate_valid(model, dataset, args, sess):
     for u in users:
         if len(train[u]) < 1 or len(valid[u]) < 1: continue
 
-        seq = np.zeros([args.maxlen], dtype=np.int32)
-        idx = args.maxlen - 1
+        seq = np.zeros([hparams[HP_MAXLEN]], dtype=np.int32)
+        idx = hparams[HP_MAXLEN] - 1
         for i in reversed(train[u]):
             seq[idx] = i
             idx -= 1
