@@ -1,0 +1,19 @@
+
+hello
+dataset,ml1m
+gpu,0
+k,10
+num_epochs,2000
+train_dir,default
+
+There are 6040 users 3416 items 
+
+Average sequence length: 163.49850993377484
+
+Maximum length of sequence: 2275
+
+--- Starting trial: run-0
+{'learning rate': 0.0001, 'max len': 50, 'batch size': 32, 'user hidden units': 30, 'item hidden units': 30, 'num blocks': 1, 'num heads': 1, 'dropout rate': 0.2, 'sse prob user': 0.1, 'sse prob item': 0.1, 'l2 emb': 0.0}
+[0.34214, 0.55911, 0.32766, 0.54238]
+--- Starting trial: run-1
+{'learning rate': 0.0001, 'max len': 50, 'batch size': 32, 'user hidden units': 30, 'item hidden units': 30, 'num blocks': 1, 'num heads': 1, 'dropout rate': 0.2, 'sse prob user': 0.1, 'sse prob item': 0.1, 'l2 emb': 0.1}

@@ -42,7 +42,7 @@ parser.add_argument('--train_dir', default='default')
 # parser.add_argument('--user_hidden_units', default=50, type=int)
 # parser.add_argument('--item_hidden_units', default=50, type=int)
 # parser.add_argument('--num_blocks', default=2, type=int)
-parser.add_argument('--num_epochs', default=2, type=int)
+parser.add_argument('--num_epochs', default=2000, type=int)
 # parser.add_argument('--num_heads', default=1, type=int)
 # parser.add_argument('--dropout_rate', default=0.5, type=float)
 # parser.add_argument('--threshold_user', default=1.0, type=float)
@@ -109,7 +109,7 @@ def run(run_dir, args, hparams):
 
         t_test = evaluate(model, dataset, args, hparams, sess)
         t_valid = evaluate_valid(model, dataset, args, hparams, sess)
-        print("[{0:.5f}, {1:.5f}],".format(t_valid[0], t_test[0]))
+        print("[{0:.5f}, {1:.5f}, {2:.5f}, {3:.5f}]".format(t_valid[0], t_valid[1], t_test[0], t_test[1]))
         accuracy = t_valid[0]
         tf.summary.scalar(METRIC_NDCG, accuracy)
 
