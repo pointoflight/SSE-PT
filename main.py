@@ -77,14 +77,19 @@ print("Maximum length of sequence: {0}\n".format(max_len))
 
 f = open(os.path.join(args.dataset + '_' + args.train_dir, 'log.txt'), 'w')
 
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-config.allow_soft_placement = True
-sess = tf.Session(config=config)
+#config = tf.ConfigProto()
+#config.gpu_options.allow_growth = True
+#config.allow_soft_placement = True
+#sess = tf.Session(config=config)
 
 
 
 def run(run_dir, args, hparams):
+
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    config.allow_soft_placement = True
+    sess = tf.Session(config=config)
 
     num_batch = len(user_train) // hparams[HP_BS]
 
