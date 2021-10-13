@@ -96,3 +96,53 @@ WARNING:tensorflow:From main.py:101: The name tf.global_variables_initializer is
 2021-10-12 17:46:11.849860: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
 2021-10-12 17:46:12.521156: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
 [0, 0.0, 0.04566, 0.10166, 0.04460, 0.09619],
+[50, 40.36, 0.22642, 0.39752, 0.22736, 0.40348],
+[100, 156.16, 0.23624, 0.42649, 0.23530, 0.43129],
+[150, 347.93, 0.23780, 0.42748, 0.23832, 0.43940],
+Process Process-2:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.7/multiprocessing/process.py", line 297, in _bootstrap
+    self.run()
+  File "/opt/conda/lib/python3.7/multiprocessing/process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 55, in sample_function
+    one_batch.append(sample())
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 38, in sample
+    if nxt != 0: neg[idx] = random_neq(1, itemnum + 1, ts)
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 7, in random_neq
+    t = np.random.randint(l, r)
+KeyboardInterrupt
+Process Process-1:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.7/multiprocessing/process.py", line 297, in _bootstrap
+    self.run()
+  File "/opt/conda/lib/python3.7/multiprocessing/process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 55, in sample_function
+    one_batch.append(sample())
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 35, in sample
+    nxt = np.random.randint(1, itemnum + 1)
+KeyboardInterrupt
+Process Process-3:
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.7/multiprocessing/process.py", line 297, in _bootstrap
+    self.run()
+  File "/opt/conda/lib/python3.7/multiprocessing/process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 55, in sample_function
+    one_batch.append(sample())
+  File "/home/vedantc/exp/git/SSE-PT/sampler.py", line 35, in sample
+    nxt = np.random.randint(1, itemnum + 1)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "main.py", line 168, in <module>
+    run('logs/hparam_tuning/' + run_name, args, hparams)
+  File "main.py", line 115, in run
+    model.is_training: True})
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/client/session.py", line 956, in run
+    run_metadata_ptr)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/client/session.py", line 1149, in _run
+    np_val = np.asarray(subfeed_val, dtype=subfeed_dtype)
+  File "/opt/conda/lib/python3.7/site-packages/numpy/core/_asarray.py", line 83, in asarray
+    return array(a, dtype, copy=False, order=order)
+KeyboardInterrupt
