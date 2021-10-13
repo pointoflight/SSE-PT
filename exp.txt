@@ -349,3 +349,31 @@ Maximum length of sequence: 2275
 [1600, 60381.37, 0.59314, 0.80149, 0.55807, 0.77682],
 [1650, 64215.95, 0.59435, 0.80397, 0.55906, 0.77616],
 [1700, 68168.31, 0.59167, 0.79950, 0.55501, 0.77682],
+[1750, 72237.99, 0.59382, 0.79868, 0.55552, 0.77533],
+[1800, 76425.30, 0.59371, 0.80017, 0.55515, 0.77285],
+[1850, 80730.51, 0.58713, 0.79752, 0.55333, 0.77152],
+[1900, 85153.73, 0.59059, 0.79934, 0.55391, 0.76937],
+[1950, 89695.36, 0.59636, 0.80232, 0.55646, 0.77632],
+[2000, 94355.06, 0.59089, 0.79669, 0.55600, 0.77136],
+--- Starting trial: run-8
+{'learning rate': 0.0005, 'max len': 50, 'batch size': 128, 'user hidden units': 50, 'item hidden units': 100, 'num blocks': 2, 'num heads': 1, 'dropout rate': 0.2, 'sse prob user': 0.08, 'sse prob item': 0.08, 'l2 emb': 0.0}
+Traceback (most recent call last):
+  File "main.py", line 168, in <module>
+    run('logs/hparam_tuning/' + run_name, args, hparams)
+  File "main.py", line 100, in run
+    model = Model(usernum, itemnum, hparams)
+  File "/home/vedantc/exp/git/SSE-PT/model_v1.py", line 25, in __init__
+    reuse=reuse
+  File "/home/vedantc/exp/git/SSE-PT/modules.py", line 121, in embedding
+    regularizer=tf.contrib.layers.l2_regularizer(l2_reg))
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 1500, in get_variable
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 1243, in get_variable
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 567, in get_variable
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 519, in _true_getter
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 873, in _get_single_variable
+    (name, shape, found_var.get_shape()))
+ValueError: Trying to share variable SASRec/input_embeddings/lookup_table, but specified shape (3417, 100) and found shape (3417, 50).
