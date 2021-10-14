@@ -1,0 +1,136 @@
+dataset,ml1m
+gpu,1
+k,10
+num_epochs,2000
+print_freq,50
+train_dir,default
+
+There are 6040 users 3416 items 
+
+Average sequence length: 163.49850993377484
+
+Maximum length of sequence: 2275
+
+--- Starting trial: run-0
+{'learning rate': 0.0005, 'max len': 200, 'batch size': 128, 'user hidden units': 100, 'item hidden units': 100, 'num blocks': 4, 'num heads': 1, 'dropout rate': 0.2, 'sse prob user': 0.08, 'sse prob item': 0.9, 'l2 emb': 0.0}
+[0, 0.0, 0.04296, 0.09719, 0.04673, 0.10116],
+[50, 84.82, 0.55151, 0.80911, 0.52443, 0.77881],
+[100, 324.87, 0.62370, 0.84570, 0.59704, 0.82384],
+[150, 719.69, 0.63549, 0.85315, 0.61555, 0.82881],
+[200, 1270.02, 0.64349, 0.86142, 0.61770, 0.83344],
+[250, 1975.59, 0.64531, 0.86242, 0.62017, 0.83560],
+[300, 2836.01, 0.64935, 0.85828, 0.62690, 0.83493],
+[350, 3851.24, 0.64944, 0.85911, 0.62336, 0.83576],
+[400, 5021.04, 0.65096, 0.85927, 0.62540, 0.83659],
+[450, 6345.19, 0.65487, 0.86341, 0.62517, 0.83344],
+[500, 7823.64, 0.65059, 0.86407, 0.62422, 0.83593],
+[550, 9455.87, 0.65234, 0.86126, 0.62422, 0.83377],
+[600, 11241.95, 0.65465, 0.86407, 0.62903, 0.83278],
+[650, 13182.37, 0.65133, 0.86490, 0.62566, 0.83526],
+[700, 15277.71, 0.65431, 0.86474, 0.62811, 0.83394],
+[750, 17527.64, 0.65743, 0.86656, 0.62435, 0.83146],
+[800, 19932.97, 0.65701, 0.86242, 0.62814, 0.83543],
+[850, 22493.37, 0.65441, 0.86490, 0.62500, 0.83328],
+[900, 25208.24, 0.65548, 0.86457, 0.62627, 0.83195],
+[950, 28077.93, 0.65856, 0.86109, 0.62652, 0.83295],
+[1000, 31102.00, 0.65699, 0.86490, 0.62421, 0.83146],
+[1050, 34280.21, 0.65949, 0.86407, 0.62438, 0.83295],
+[1100, 37612.65, 0.65604, 0.86175, 0.62334, 0.83295],
+[1150, 41099.46, 0.65489, 0.86391, 0.62583, 0.83212],
+[1200, 44740.75, 0.65900, 0.86341, 0.62387, 0.83328],
+[1250, 48536.49, 0.65501, 0.86589, 0.62524, 0.83394],
+[1300, 52487.16, 0.65494, 0.86275, 0.62347, 0.83129],
+[1350, 56592.70, 0.65758, 0.86010, 0.62615, 0.83262],
+[1400, 60853.23, 0.65405, 0.86424, 0.62578, 0.83427],
+[1450, 65268.70, 0.65582, 0.86407, 0.62354, 0.82864],
+[1500, 69839.25, 0.65639, 0.86374, 0.62318, 0.83344],
+[1550, 74564.11, 0.65875, 0.86457, 0.62800, 0.83245],
+[1600, 79442.84, 0.65636, 0.86606, 0.62680, 0.83129],
+[1650, 84474.82, 0.65697, 0.86325, 0.62411, 0.83129],
+[1700, 89660.28, 0.65402, 0.86142, 0.62178, 0.82831],
+[1750, 94998.96, 0.65843, 0.86440, 0.62856, 0.83146],
+[1800, 100490.89, 0.65808, 0.86457, 0.62205, 0.83129],
+[1850, 106135.15, 0.65253, 0.86374, 0.62302, 0.82930],
+[1900, 111933.13, 0.65475, 0.85993, 0.62669, 0.83179],
+[1950, 117884.76, 0.65123, 0.86043, 0.62681, 0.83245],
+[2000, 123989.83, 0.65215, 0.85762, 0.62339, 0.82798],
+--- Starting trial: run-1
+{'learning rate': 0.0005, 'max len': 200, 'batch size': 128, 'user hidden units': 100, 'item hidden units': 100, 'num blocks': 4, 'num heads': 2, 'dropout rate': 0.2, 'sse prob user': 0.08, 'sse prob item': 0.9, 'l2 emb': 0.0}
+[0, 0.0, 0.04614, 0.09917, 0.04632, 0.10033],
+[50, 110.91, 0.54464, 0.80497, 0.52051, 0.77947],
+[100, 409.55, 0.61986, 0.85033, 0.59556, 0.82632],
+[150, 895.87, 0.64109, 0.85480, 0.61330, 0.83228],
+[200, 1569.14, 0.64583, 0.86109, 0.61954, 0.83377],
+[250, 2429.02, 0.64656, 0.85993, 0.62244, 0.83858],
+[300, 3476.24, 0.65328, 0.86093, 0.62447, 0.83295],
+[350, 4711.33, 0.64779, 0.85993, 0.62540, 0.83709],
+[400, 6134.06, 0.65380, 0.86109, 0.62413, 0.83791],
+[450, 7743.50, 0.65151, 0.86374, 0.62921, 0.84238],
+[500, 9539.78, 0.65272, 0.86407, 0.62569, 0.83841],
+[550, 11523.79, 0.65435, 0.86788, 0.62748, 0.83576],
+[600, 13695.94, 0.65323, 0.86159, 0.62971, 0.83560],
+[650, 16055.36, 0.65592, 0.86242, 0.63195, 0.83543],
+[700, 18601.07, 0.65668, 0.86358, 0.62523, 0.83394],
+[750, 21334.26, 0.65443, 0.86407, 0.62618, 0.83361],
+[800, 24255.70, 0.65661, 0.86258, 0.62701, 0.83510],
+[850, 27364.77, 0.65649, 0.86275, 0.62528, 0.83278],
+[900, 30661.07, 0.65664, 0.86275, 0.62472, 0.83907],
+[950, 34144.03, 0.66009, 0.86606, 0.63000, 0.83609],
+[1000, 37814.84, 0.65650, 0.86540, 0.63044, 0.83262],
+[1050, 41673.83, 0.65748, 0.86341, 0.62873, 0.83411],
+[1100, 45720.65, 0.65516, 0.86126, 0.62541, 0.82815],
+[1150, 49954.59, 0.65692, 0.86507, 0.62950, 0.83063],
+[1200, 54375.69, 0.65794, 0.85960, 0.62763, 0.83460],
+[1250, 58984.29, 0.65890, 0.86755, 0.63111, 0.83411],
+[1300, 63780.68, 0.65720, 0.86126, 0.62828, 0.83113],
+[1350, 68764.18, 0.65622, 0.86457, 0.63072, 0.83460],
+[1400, 73934.36, 0.66031, 0.86656, 0.63082, 0.83278],
+[1450, 79291.83, 0.65818, 0.86672, 0.62966, 0.83609],
+[1500, 84837.20, 0.65139, 0.86043, 0.62768, 0.83262],
+[1550, 90561.80, 0.65636, 0.86258, 0.62653, 0.83295],
+[1600, 96465.41, 0.65500, 0.85944, 0.62302, 0.83195],
+[1650, 102548.90, 0.65435, 0.86209, 0.62401, 0.83079],
+[1700, 108811.91, 0.65698, 0.86258, 0.62670, 0.83228],
+[1750, 115254.04, 0.65375, 0.86374, 0.62692, 0.83195],
+[1800, 121875.38, 0.65321, 0.86374, 0.62793, 0.83510],
+[1850, 128676.05, 0.65500, 0.86159, 0.62528, 0.83444],
+[1900, 135656.47, 0.65452, 0.86291, 0.62708, 0.83344],
+[1950, 142816.45, 0.65610, 0.86275, 0.62616, 0.83228],
+[2000, 150155.67, 0.65494, 0.86391, 0.62762, 0.83858],
+--- Starting trial: run-2
+{'learning rate': 0.0005, 'max len': 200, 'batch size': 128, 'user hidden units': 100, 'item hidden units': 100, 'num blocks': 4, 'num heads': 3, 'dropout rate': 0.2, 'sse prob user': 0.08, 'sse prob item': 0.9, 'l2 emb': 0.0}
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/framework/ops.py", line 1607, in _create_c_op
+    c_op = c_api.TF_FinishOperation(op_desc)
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Dimension size must be evenly divisible by 3 but is 200
+	Number of ways to split should evenly divide the split dimension for 'SASRec_2/num_blocks_0/self_attention/split' (op: 'Split') with input shapes: [], [?,200,200] and with computed input tensors: input[0] = <2>.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 173, in <module>
+    run('logs/hparam_tuning/' + run_name, args, hparams)
+  File "main.py", line 105, in run
+    model = Model(usernum, itemnum, hparams)
+  File "/home/vedantc/exp/git/SSE-PT/model_v1.py", line 92, in __init__
+    scope="self_attention")
+  File "/home/vedantc/exp/git/SSE-PT/modules.py", line 174, in multihead_attention
+    Q_ = tf.concat(tf.split(Q, num_heads, axis=2), axis=0) # (h*N, T_q, C/h) 
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/array_ops.py", line 1684, in split
+    axis=axis, num_split=num_or_size_splits, value=value, name=name)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/gen_array_ops.py", line 9898, in split
+    "Split", split_dim=axis, value=value, num_split=num_split, name=name)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/framework/op_def_library.py", line 794, in _apply_op_helper
+    op_def=op_def)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/framework/ops.py", line 3357, in create_op
+    attrs, op_def, compute_device)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/framework/ops.py", line 3426, in _create_op_internal
+    op_def=op_def)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/framework/ops.py", line 1770, in __init__
+    control_input_ops)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/framework/ops.py", line 1610, in _create_c_op
+    raise ValueError(str(e))
+ValueError: Dimension size must be evenly divisible by 3 but is 200
+	Number of ways to split should evenly divide the split dimension for 'SASRec_2/num_blocks_0/self_attention/split' (op: 'Split') with input shapes: [], [?,200,200] and with computed input tensors: input[0] = <2>.

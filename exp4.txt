@@ -1,0 +1,78 @@
+dataset,ml1m
+gpu,0
+k,10
+num_epochs,2000
+print_freq,50
+train_dir,default
+
+There are 6040 users 3416 items 
+
+Average sequence length: 163.49850993377484
+
+Maximum length of sequence: 2275
+
+--- Starting trial: run-0
+{'learning rate': 0.0005, 'max len': 50, 'batch size': 128, 'user hidden units': 100, 'item hidden units': 100, 'num blocks': 5, 'num heads': 1, 'dropout rate': 0.2, 'sse prob user': 0.08, 'sse prob item': 0.9, 'l2 emb': 0.0}
+[0, 0.0, 0.04551, 0.10232, 0.04738, 0.10182],
+[50, 64.30, 0.47769, 0.74586, 0.45881, 0.72169],
+[100, 258.46, 0.58229, 0.81904, 0.56357, 0.80066],
+[150, 582.35, 0.60890, 0.83361, 0.57681, 0.80977],
+[200, 1036.39, 0.61464, 0.83295, 0.59352, 0.81076],
+[250, 1619.15, 0.62403, 0.84073, 0.59668, 0.81258],
+[300, 2330.78, 0.62350, 0.83874, 0.59273, 0.80762],
+[350, 3169.96, 0.62523, 0.83742, 0.59839, 0.81589],
+[400, 4138.33, 0.62740, 0.83891, 0.59918, 0.80811],
+[450, 5234.06, 0.62988, 0.83427, 0.59729, 0.81026],
+[500, 6457.89, 0.63061, 0.83791, 0.60037, 0.81507],
+[550, 7808.96, 0.62594, 0.83642, 0.59278, 0.80629],
+[600, 9287.49, 0.62722, 0.83659, 0.59389, 0.80315],
+[650, 10894.44, 0.62445, 0.83526, 0.59505, 0.80646],
+[700, 12629.04, 0.62803, 0.83642, 0.59199, 0.80331],
+[750, 14492.00, 0.62814, 0.83411, 0.59554, 0.80745],
+[800, 16483.25, 0.62566, 0.83444, 0.59571, 0.80497],
+[850, 18603.10, 0.62616, 0.83493, 0.59310, 0.80397],
+[900, 20855.27, 0.62059, 0.83593, 0.59544, 0.80662],
+[950, 23247.86, 0.62345, 0.82798, 0.59424, 0.80530],
+[1000, 25781.11, 0.62783, 0.82980, 0.59243, 0.80017],
+[1050, 28454.48, 0.62501, 0.82930, 0.59397, 0.80199],
+[1100, 31267.95, 0.62493, 0.83394, 0.59541, 0.80149],
+[1150, 34221.31, 0.62669, 0.83377, 0.59469, 0.80364],
+[1200, 37314.22, 0.62928, 0.83245, 0.59569, 0.80182],
+[1250, 40546.47, 0.62290, 0.82964, 0.59250, 0.80132],
+[1300, 43917.96, 0.62283, 0.82897, 0.59284, 0.80298],
+[1350, 47428.69, 0.62652, 0.82897, 0.59396, 0.80017],
+[1400, 51079.06, 0.62200, 0.82815, 0.59172, 0.80298],
+[1450, 54869.07, 0.62299, 0.82798, 0.59309, 0.80364],
+[1500, 58798.85, 0.62264, 0.82599, 0.59317, 0.80199],
+[1550, 62869.29, 0.62118, 0.82533, 0.58927, 0.79834],
+[1600, 67080.63, 0.62763, 0.82666, 0.59224, 0.79851],
+[1650, 71432.97, 0.62885, 0.83262, 0.58826, 0.79818],
+[1700, 75926.24, 0.62099, 0.83063, 0.58868, 0.79570],
+[1750, 80560.66, 0.62609, 0.82781, 0.59008, 0.79669],
+[1800, 85335.21, 0.61682, 0.82500, 0.58672, 0.80017],
+[1850, 90249.92, 0.62220, 0.82848, 0.58707, 0.79851],
+[1900, 95304.32, 0.61907, 0.82599, 0.58780, 0.79950],
+[1950, 100498.00, 0.62279, 0.82500, 0.58976, 0.79967],
+[2000, 105831.19, 0.61938, 0.82864, 0.58989, 0.79553],
+--- Starting trial: run-1
+{'learning rate': 0.0005, 'max len': 100, 'batch size': 128, 'user hidden units': 100, 'item hidden units': 100, 'num blocks': 5, 'num heads': 1, 'dropout rate': 0.2, 'sse prob user': 0.08, 'sse prob item': 0.9, 'l2 emb': 0.0}
+Traceback (most recent call last):
+  File "main.py", line 173, in <module>
+    run('logs/hparam_tuning/' + run_name, args, hparams)
+  File "main.py", line 105, in run
+    model = Model(usernum, itemnum, hparams)
+  File "/home/vedantc/exp/git/SSE-PT/model_v1.py", line 38, in __init__
+    with_t=True
+  File "/home/vedantc/exp/git/SSE-PT/modules.py", line 121, in embedding
+    regularizer=tf.contrib.layers.l2_regularizer(l2_reg))
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 1500, in get_variable
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 1243, in get_variable
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 567, in get_variable
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 519, in _true_getter
+    aggregation=aggregation)
+  File "/opt/conda/lib/python3.7/site-packages/tensorflow_core/python/ops/variable_scope.py", line 873, in _get_single_variable
+    (name, shape, found_var.get_shape()))
+ValueError: Trying to share variable SASRec/dec_pos/lookup_table, but specified shape (100, 200) and found shape (50, 200).

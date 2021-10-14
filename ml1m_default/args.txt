@@ -1,5 +1,5 @@
 dataset,ml1m
-gpu,0
+gpu,1
 k,10
 num_epochs,2000
 print_freq,50
